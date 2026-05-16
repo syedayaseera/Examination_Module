@@ -148,6 +148,4 @@ http://localhost:5001/api
 
 ## Screenshots and Video
 
-- Add screenshots inside `docs/screenshots`.
-- Use `docs/VIDEO_SCRIPT.md` as a 5-10 minute explanation guide.
-- Use `docs/SCREENSHOTS.md` as the screenshot checklist.
+Check docs folder for Video and Screenshots
