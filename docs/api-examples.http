@@ -1,0 +1,69 @@
+### Health check
+GET http://localhost:5001/api/health
+
+### Register user
+POST http://localhost:5001/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Student User",
+  "email": "student2@example.com",
+  "password": "Password@123"
+}
+
+### Login
+POST http://localhost:5001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "Password@123"
+}
+
+### Create exam
+POST http://localhost:5001/api/exams
+Authorization: Bearer TOKEN_HERE
+Content-Type: application/json
+
+{
+  "title": "JavaScript Basics",
+  "description": "A short exam covering JavaScript fundamentals.",
+  "durationMinutes": 30
+}
+
+### Add question
+POST http://localhost:5001/api/exams/1/questions
+Authorization: Bearer TOKEN_HERE
+Content-Type: application/json
+
+{
+  "questionText": "Which keyword declares a block-scoped variable?",
+  "optionA": "var",
+  "optionB": "let",
+  "optionC": "function",
+  "optionD": "return",
+  "correctOption": "B",
+  "marks": 5
+}
+
+### List exams
+GET http://localhost:5001/api/exams
+Authorization: Bearer TOKEN_HERE
+
+### Submit exam
+POST http://localhost:5001/api/exams/1/submit
+Authorization: Bearer TOKEN_HERE
+Content-Type: application/json
+
+{
+  "answers": [
+    {
+      "questionId": 1,
+      "selectedOption": "B"
+    }
+  ]
+}
+
+### Exam analytics
+GET http://localhost:5001/api/exams/1/analytics
+Authorization: Bearer TOKEN_HERE

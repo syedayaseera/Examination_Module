@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examination Module</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="topbar" class="topbar">
+        <div>
+          <h1>Examination Module</h1>
+          <p id="sessionText">Login to manage and attempt exams.</p>
+        </div>
+        <button id="logoutBtn" class="logout-button hidden" type="button">Logout</button>
+      </section>
+
+      <div id="messageBox" class="message hidden"></div>
+
+      <section id="authView" class="auth-panel">
+        <form id="loginForm" class="panel form auth-card">
+          <h2>Login</h2>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="Enter email address" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" placeholder="Enter password" required />
+          </label>
+          <button type="submit">Login</button>
+          <p class="auth-switch">
+            New student?
+            <button id="showSignupBtn" class="link-button" type="button">Create an account</button>
+          </p>
+        </form>
+
+        <form id="registerForm" class="panel form auth-card hidden">
+          <h2>Sign Up</h2>
+          <label>
+            Name
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" placeholder="Minimum 6 characters" required />
+          </label>
+          <button type="submit">Create Account</button>
+          <p class="auth-switch">
+            Already registered?
+            <button id="showLoginBtn" class="link-button" type="button">Back to login</button>
+          </p>
+        </form>
+      </section>
+
+      <section id="appView" class="hidden layout">
+        <aside class="panel sidebar">
+          <div class="nav-header">
+            <span id="accountInitial" class="account-initial">S</span>
+            <div>
+              <strong id="accountName">Signed in</strong>
+              <span id="roleText">Student</span>
+            </div>
+          </div>
+          <button class="nav-btn active" data-view="examsView" type="button">Exams</button>
+          <button class="nav-btn" data-view="adminView" type="button">Admin</button>
+          <button class="nav-btn" data-view="studentsView" type="button">Students</button>
+          <button class="nav-btn" data-view="resultsView" type="button">Results</button>
+        </aside>
+
+        <section class="content">
+          <div id="examsView" class="view panel">
+            <div id="examsHeader" class="section-title">
+              <h2>Available Exams</h2>
+            </div>
+            <div id="examList" class="list"></div>
+            <div id="examDetail" class="exam-detail hidden"></div>
+          </div>
+
+          <div id="adminView" class="view panel hidden">
+            <h2>Create Exam</h2>
+            <form id="examForm" class="form compact">
+              <label>
+                Title
+                <input name="title" type="text" placeholder="Quiz Title" required />
+              </label>
+              <label>
+                Description
+                <textarea name="description" rows="3" placeholder="Short exam description"></textarea>
+              </label>
+              <label>
+                Duration
+                <input name="durationMinutes" type="number" min="1" value="30" required />
+              </label>
+              <button type="submit">Save Exam</button>
+            </form>
+
+            <h2>Add Question</h2>
+            <form id="questionForm" class="form compact">
+              <label>
+                Exam
+                <select name="examId" id="questionExamSelect" required></select>
+              </label>
+              <label>
+                Question
+                <textarea name="questionText" rows="3" required></textarea>
+              </label>
+              <div class="option-grid">
+                <label>Option A <input name="optionA" required /></label>
+                <label>Option B <input name="optionB" required /></label>
+                <label>Option C <input name="optionC" required /></label>
+                <label>Option D <input name="optionD" required /></label>
+              </div>
+              <div class="option-grid">
+                <label>
+                  Correct
+                  <select name="correctOption">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                  </select>
+                </label>
+                <label>
+                  Marks
+                  <input name="marks" type="number" min="1" value="1" required />
+                </label>
+              </div>
+              <button type="submit">Add Question</button>
+            </form>
+
+          </div>
+
+          <div id="resultsView" class="view panel hidden">
+            <div class="section-title">
+              <h2 id="resultsTitle">My Results</h2>
+            </div>
+            <div id="resultsList" class="list"></div>
+          </div>
+
+          <div id="studentsView" class="view panel hidden">
+            <div class="section-title">
+              <h2>Students</h2>
+            </div>
+            <div id="studentsList" class="list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="confirmModal" class="modal-backdrop hidden">
+      <section class="modal">
+        <h2 id="confirmTitle">Confirm Action</h2>
+        <p id="confirmText">Are you sure?</p>
+        <div class="modal-actions">
+          <button id="confirmCancelBtn" class="secondary-button" type="button">Cancel</button>
+          <button id="confirmOkBtn" class="danger-button small-button" type="button">Delete</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
