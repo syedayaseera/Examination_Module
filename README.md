@@ -146,6 +146,9 @@ http://localhost:5001/api
 }
 ```
 
-## Screenshots and Video
+## Screenshots 
 
-Check docs folder for Video and Screenshots
+Check docs/screenshots for Screenshots
+
+## Video
+Video Link : https://drive.google.com/file/d/1eKzcoJyPWQgm3u1-WxbP0PQWiBleYM3Y/view?usp=drive_link
